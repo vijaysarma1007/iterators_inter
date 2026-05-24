@@ -1,9 +1,12 @@
 use core::iter::Iterator;
+
+// if you want have additional methods on top of already avaliable methods in iterator then we can use iterator extend , which makes a custom method sudddenly avaliable inside iterator for use
 pub trait IteratorExt: Iterator + Sized {
     fn our_flatten(self) -> Flatten<Self>
     where
         Self::Item: IntoIterator;
 }
+
 impl<T> IteratorExt for T
 where
     T: Iterator,
